@@ -1,4 +1,4 @@
-
+sudo apt-get install csh
 mkdir data lib 
 # Install darwin
 cd lib/
