@@ -1,20 +1,22 @@
 
 mkdir data lib 
 # Install darwin
-#git clone https://github.com/sgould/drwn.git
-#cd external
-#./install.sh Eigen
-#cd ..
-#cd external
-#./install.sh zlib
-#./install.sh OpenCV
-#./install.sh wxWidgets
-#./install.sh lua
-#cd ..
-#export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${DARWIN}/external/opencv/lib
-#make
-#make drwnprojs
-
+cd lib/
+git clone https://github.com/sgould/drwn.git
+cd drwn/
+cd external
+./install.sh Eigen
+cd ..
+cd external
+./install.sh zlib
+./install.sh OpenCV
+./install.sh wxWidgets
+./install.sh lua
+cd ..
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${DARWIN}/external/opencv/lib
+make
+make drwnprojs
+cd ../../../
 # piotr dollar's toolbox
 cd lib/
 git clone https://github.com/pdollar/toolbox.git
