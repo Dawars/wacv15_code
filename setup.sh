@@ -33,7 +33,7 @@ mv images data/
 mv labels_used labels
 mv labels data/
 rm -rf labels_full
-wget http://files.is.tue.mpg.de/vjampani/graz_folds.zip 
+wget http://files.is.tue.mpg.de/vjampani/fsdata/graz_folds.zip
 unzip graz_folds.zip
 mv graz_folds/set*.txt .
 rm -rf graz_folds graz_folds.zip

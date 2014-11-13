@@ -1,0 +1,53 @@
+<drwn>
+  <drwnMultiSegConfig>
+    <!-- data options -->
+		<option name="baseDir" value="./" />
+		<option name="imgDir" value="../data/cmp12/data/images/" />
+		<option name="lblDir" value="../data/cmp12/data/labels/" />
+		<option name="cacheDir" value="../../../../../Desktop/WACV/cmp12/" />
+		<option name="modelsDir" value="../../../../../Desktop/WACV/cmp12/"/>
+		<option name="outputDir" value="../../../../../Desktop/WACV/cmp12/" />
+
+    <option name="imgExt" value=".png" />
+    <option name="lblExt" value=".txt" />
+
+    <option name="useCache" value="false" />
+
+    <!-- region definitions -->
+		<regionDefinitions>
+			<region id="0" name="background" color="0 0 170"/>
+			<region id="1" name="facade" color="0 0 255"/>
+			<region id="2" name="window" color="0 85 255"/>
+			<region id="3" name="door" color="0 170 255"/>
+			<region id="4" name="cornice" color="0 255 255"/>
+			<region id="5" name="sill" color="85 255 170"/>
+			<region id="6" name="balcony" color="170 255 85"/>
+			<region id="7" name="blind" color="255 255 0"/>
+			<region id="8" name="deco" color="255 170 0"/>
+			<region id="9" name="molding" color="255 85 0"/>
+			<region id="10" name="pillar" color="255 0 0"/>
+			<region id="11" name="shop" color="170 0 0"/>
+
+    </regionDefinitions>
+  </drwnMultiSegConfig>
+
+  <drwnSegImagePixelFeatures>
+    <!-- feature options -->
+    <option name="filterBandwidth" value="1" />
+    <option name="featureGridSpacing" value="5" />
+    <option name="includeRGB" value="true" />
+    <option name="includeHOG" value="true" />
+    <option name="includeLBP" value="true" />
+    <option name="includeRowCol" value="true" />
+    <option name="includeLocation" value="true" />
+		<option name="auxFeatureDir" value="../../../../../Desktop/WACV/cmp12/" />
+		<option name="auxFeatureExt" value=".doorfeatures.bin .windowfeatures.bin" />
+  </drwnSegImagePixelFeatures>
+
+  <drwnCodeProfiler enabled="true" />
+  <drwnLogger logLevel="VERBOSE"
+		logFile="../../../../../Desktop/WACV/cmp12/cmp12.log" />
+  <drwnThreadPool threads="8" />
+  <drwnConfusionMatrix colSep=" || " rowBegin="    || " rowEnd=" \" />
+  <drwnHOGFeatures blockSize="1" normClippingLB="0.1" normClippingUB="0.5" />
+</drwn>
