@@ -26,6 +26,7 @@ cd ../
 cd data/
 wget http://www.vision.ee.ethz.ch/~rhayko/paper/cvpr2012_riemenschneider_lattice/graz50_facade_dataset.zip
 unzip graz50_facade_dataset.zip
+rm -rf graz
 mv graz50_facade_dataset graz
 cd graz/
 mkdir data
