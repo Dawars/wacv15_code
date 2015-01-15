@@ -1,4 +1,4 @@
-sudo apt-get install csh
+sudo apt-get install csh cmake
 mkdir data lib 
 
 # Install darwin
