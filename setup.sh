@@ -1,5 +1,5 @@
 sudo apt-get install csh cmake g++
-mkdir data lib 
+mkdir data lib out
 
 # Install darwin
 cd lib/

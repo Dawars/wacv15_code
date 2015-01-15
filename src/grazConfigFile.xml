@@ -4,9 +4,9 @@
     <option name="baseDir" value="./" />
 		<option name="imgDir" value="../data/graz/data/images/" />
 		<option name="lblDir" value="../data/graz/data/labels/" />
-		<option name="cacheDir" value="../../../../../Desktop/WACV/graz/" />
-		<option name="modelsDir" value="../../../../../Desktop/WACV/graz/"/>
-		<option name="outputDir" value="../../../../../Desktop/WACV/graz/" />
+		<option name="cacheDir" value="../out/graz/" />
+		<option name="modelsDir" value="../out/graz/"/>
+		<option name="outputDir" value="../out/graz/" />
 
     <option name="imgExt" value=".png" />
     <option name="lblExt" value=".txt" />
@@ -31,13 +31,13 @@
     <option name="includeLBP" value="true" />
     <option name="includeRowCol" value="true" />
     <option name="includeLocation" value="true" />
-		<option name="auxFeatureDir" value="../../../../../Desktop/WACV/graz/" />
+		<option name="auxFeatureDir" value="../out/graz/" />
 		<option name="auxFeatureExt" value=".doorfeatures.bin .windowfeatures.bin" />
   </drwnSegImagePixelFeatures>
 
   <drwnCodeProfiler enabled="true" />
   <drwnLogger logLevel="VERBOSE"
-		logFile="../../../../../Desktop/WACV/graz/graz.log" />
+		logFile="../out/graz/graz.log" />
   <drwnThreadPool threads="8" />
   <drwnConfusionMatrix colSep=" || " rowBegin="    || " rowEnd=" \" />
   <drwnHOGFeatures blockSize="1" normClippingLB="0.1" normClippingUB="0.5" />
