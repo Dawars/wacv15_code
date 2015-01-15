@@ -11,7 +11,7 @@ cd drwn/external
 ./install.sh wxWidgets
 ./install.sh lua
 cd ..
-export DARWIN="./"
+export DARWIN=${PWD}
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${DARWIN}/external/opencv/lib
 make
 make drwnprojs
