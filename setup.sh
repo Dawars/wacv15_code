@@ -4,14 +4,14 @@ mkdir data lib
 # Install darwin
 cd lib/
 git clone https://github.com/sgould/drwn.git
-cd drwn/
-cd external
+cd drwn/external
 ./install.sh Eigen
 ./install.sh zlib
 ./install.sh OpenCV
 ./install.sh wxWidgets
 ./install.sh lua
 cd ..
+export DARWIN="./"
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${DARWIN}/external/opencv/lib
 make
 make drwnprojs
