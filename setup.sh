@@ -1,13 +1,12 @@
 sudo apt-get install csh
 mkdir data lib 
+
 # Install darwin
 cd lib/
 git clone https://github.com/sgould/drwn.git
 cd drwn/
 cd external
 ./install.sh Eigen
-cd ..
-cd external
 ./install.sh zlib
 ./install.sh OpenCV
 ./install.sh wxWidgets
@@ -16,7 +15,8 @@ cd ..
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${DARWIN}/external/opencv/lib
 make
 make drwnprojs
-cd ../../../
+cd ../../
+
 # piotr dollar's toolbox
 cd lib/
 git clone https://github.com/pdollar/toolbox.git
