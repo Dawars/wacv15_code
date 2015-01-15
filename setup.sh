@@ -13,6 +13,9 @@ cd drwn/external
 cd ..
 export DARWIN="$PWD"
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${DARWIN}/external/opencv/lib
+export LD_LIBRARY_PATH2=${LD_LIBRARY_PATH}:${PWD}/external/opencv/lib
+export LD_LIBRARY_PATH3=${LD_LIBRARY_PATH}:$PWD/external/opencv/lib
+
 make
 make drwnprojs
 cd ../../
