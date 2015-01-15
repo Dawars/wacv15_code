@@ -22,7 +22,7 @@ mkdir $tmpPath
 
 for (( c=1; c<=$numFolds; c++ ))
 do
-	${darwin}/convertPixelLabels -config $configFileName -i .png -o .txt ../data/${dataset}/data/set${c}.txt
+	${darwin}/convertPixelLabels -config $configFileName -i .png -o .txt ../data/${dataset}/set${c}.txt
 done
 
 for (( c=1; c<=$numFolds; c++ ))

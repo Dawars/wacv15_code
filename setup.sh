@@ -1,4 +1,4 @@
-sudo apt-get install csh cmake g++
+sudo apt-get install csh cmake g++ libgtk2.0-dev pkg-config
 mkdir data lib out
 
 # Install darwin
