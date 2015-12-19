@@ -22,10 +22,10 @@ try
     for i = 0:options.getLength-1
         name = options.item(i).getAttribute('name');
         if (strcmpi(name, 'baseDir')) baseDir = char(options.item(i).getAttribute('value')); end
-        if (strcmpi(name, 'imgDir')) imgDir = char(options.item(i).getAttribute('value')); end
-        if (strcmpi(name, 'lblDir')) lblDir = char(options.item(i).getAttribute('value')); end
-        if (strcmpi(name, 'outputDir')) outputDir = char(options.item(i).getAttribute('value')); end
-        if (strcmpi(name, 'auxFeatureDir')) auxFeatureDir = char(options.item(i).getAttribute('value')); end
+        if (strcmpi(name, 'imgDir')) imgDir = [baseDir  '/' char(options.item(i).getAttribute('value'))]; end
+        if (strcmpi(name, 'lblDir')) lblDir = [baseDir '/' char(options.item(i).getAttribute('value'))]; end
+        if (strcmpi(name, 'outputDir')) outputDir = [baseDir '/' char(options.item(i).getAttribute('value'))]; end
+        if (strcmpi(name, 'auxFeatureDir')) auxFeatureDir = [char(options.item(i).getAttribute('value'))]; end
     end
     %regions = drwn.getElementsByTagName('region');
 catch
@@ -82,33 +82,36 @@ end
 for i = 0:options.getLength-1
     name = options.item(i).getAttribute('name');
     if (strcmpi(name, 'outputDir'))
-        outputDir = char(options.item(i).getAttribute('value'));
-        inputDir = [outputDir 'fold' num2str(fold) '/'];
+        outputDir = [char(options.item(i).getAttribute('value'))];
         outputDir = [outputDir 'fold' num2str(fold) '/'];
         options.item(i).setAttribute('value',outputDir);
-        if~isdir(outputDir) mkdir(outputDir); end
+        if~isdir([baseDir '/' outputDir]) mkdir([baseDir '/' outputDir]); end
     end
     if (strcmpi(name, 'cacheDir'))
-        cacheDir = char(options.item(i).getAttribute('value'));
+        cacheDir = [char(options.item(i).getAttribute('value'))];
         cacheDir = [cacheDir 'fold' num2str(fold) '/'];
         options.item(i).setAttribute('value',cacheDir);
-        if~isdir(cacheDir) mkdir(cacheDir); end
+        if~isdir([baseDir '/' cacheDir]) mkdir([baseDir '/' cacheDir]); end
     end
     if (strcmpi(name, 'modelsDir'))
-        modelsDir = char(options.item(i).getAttribute('value'));
+        modelsDir = [char(options.item(i).getAttribute('value'))];
+        %modelsDir = [modelsDir 'fold' num2str(fold) '/stage' num2str(stage) '/'];
         modelsDir = [modelsDir 'fold' num2str(fold) '/'];
         options.item(i).setAttribute('value',modelsDir);
-        if~isdir(modelsDir) mkdir(modelsDir); end
+        if~isdir([baseDir '/' modelsDir]) mkdir([baseDir '/' modelsDir]); end
     end
+
     if (strcmpi(name, 'auxFeatureDir'))% && stage~=1)
+        %outputDir = [baseDir '/' char(options.item(i).getAttribute('value'))];
         auxFeatureDir = char(options.item(i).getAttribute('value'));
-        %auxFeatureDir = [auxFeatureDir 'fold' num2str(fold) '/stage' num2str(stage)];
-        auxFeatureDir = [auxFeatureDir 'fold' num2str(fold)];
+        auxFeatureDir = [baseDir '/' outputDir]; %[auxFeatureDir 'fold' num2str(fold) '/'];
         options.item(i).setAttribute('value',auxFeatureDir);
         if~isdir(auxFeatureDir) mkdir(auxFeatureDir); end
     end
     if (strcmpi(name, 'auxFeatureExt') && stage~=1)
         fileExt = ['.fold' num2str(fold) '.pot.txt'];
+        inputDir = [baseDir '/' outputDir];
+        outputDir = [baseDir '/' outputDir];				
         featstr = extractFeatures_binary(allImages, inputDir, outputDir, imgDir, numRegions, fileExt);
         auxFeatureExt = char(options.item(i).getAttribute('value'));
         auxFeatureExt = [auxFeatureExt ' ' featstr];
@@ -129,7 +132,8 @@ if (stage==1)
         testIndx = arr(1+i);
         f3 = [imgDir '../../set' num2str(testIndx) '.txt' ];
         shLine = ['cat ' f3 ' >> ' testFileName]; system(shLine);
-        DoDoorWindowDetections(trainFileName,testFileName,outputDir,doorLabel,windowLabel,imgDir,lblDir,numRegions);
+        %detections disabled!!!
+        %DoDoorWindowDetections(trainFileName,testFileName,outputDir,doorLabel,windowLabel,imgDir,lblDir,numRegions);
         %fprintf(fsh,'%s\n',['/usr/local/MATLAB/R2013a/bin/matlab -nodisplay -r "addpath(genpath(''../lib/toolbox/''));addpath( ''detection'');DoDoorWindowDetections(''' trainFileName ''',''' testFileName ''',''' outputDir ''',' num2str(doorLabel) ',' num2str(windowLabel) ',''' imgDir ''',''' lblDir ''',' num2str(numRegions) ');quit;"' ' & ']);
     end
 end
@@ -147,8 +151,8 @@ if (stage==1)
     testIndx = arr(1);
     f3 = [imgDir '../../set' num2str(testIndx) '.txt'];
     shLine = ['cat ' f3 ' >> ' testFileName]; system(shLine);
-    %detections
-    DoDoorWindowDetections(trainFileName,testFileName,outputDir,doorLabel,windowLabel,imgDir,lblDir,numRegions);
+    %detections disabled!!!!
+    %DoDoorWindowDetections(trainFileName,testFileName,outputDir,doorLabel,windowLabel,imgDir,lblDir,numRegions);
     %fprintf(fsh,'%s\n',['/usr/local/MATLAB/R2013a/bin/matlab -nodisplay -r "addpath(genpath(''../lib/toolbox/''));addpath( ''detection'');DoDoorWindowDetections(''' trainFileName ''',''' testFileName ''',''' outputDir ''',' num2str(doorLabel) ',' num2str(windowLabel) ',''' imgDir ''',''' lblDir ''',' num2str(numRegions) ');quit;"' ' & ']);
 end
 %fprintf(fsh,'wait\n');
@@ -167,6 +171,6 @@ testFileName=[testList num2str(numFolds) '.txt'];
 shLine = [cmd{1} config trainFileName];fprintf(fsh,'%s\n',shLine);
 shLine = [cmd{2} config trainFileName];fprintf(fsh,'%s\n',shLine);
 shLine = [cmd{3} config saveimages savelabels saveunary testFileName];fprintf(fsh,'%s\n',shLine);
-shLine = [cmd{4} config trainList num2str(randi(numFolds-1,1)) '.txt'];fprintf(fsh,'%s\n',shLine);
-shLine = [cmd{5} config savepair testFileName];fprintf(fsh,'%s\n',shLine);
+%shLine = [cmd{4} config trainList num2str(randi(numFolds-1,1)) '.txt'];fprintf(fsh,'%s\n',shLine);
+%shLine = [cmd{5} config savepair testFileName];fprintf(fsh,'%s\n',shLine);
 fclose(fsh);

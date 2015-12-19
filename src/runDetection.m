@@ -5,6 +5,7 @@ addpath('detection');
 
 %% Facade Segmentation
 arr = [1 : numFolds]; perm_arr = perms(arr); perm_arr = perm_arr(factorial(numFolds-1)*arr',:);
+arr = perm_arr(fold,:);
 
 trainList = [tmppath 'fold' num2str(fold) 'train'];
 testList  = [tmppath 'fold' num2str(fold) 'test' ];
@@ -24,7 +25,7 @@ testList  = [tmppath 'fold' num2str(fold) 'test' ];
 		outputDir = [outputDir 'fold' num2str(fold) '/'];
 		DoDoorWindowDetections(trainFileName,testFileName,outputDir,doorLabel,windowLabel,imgDir,lblDir,numRegions);
     end
-
+disp('====================================================================');
 % final train
 trainFileName=[trainList num2str(numFolds) '.txt'];
 testFileName=[testList num2str(numFolds) '.txt'];

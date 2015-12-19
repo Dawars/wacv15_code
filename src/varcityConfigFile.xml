@@ -1,0 +1,48 @@
+<drwn>
+  <drwnMultiSegConfig>
+    <!-- data options -->
+		<option name="baseDir" value="/" />
+		<option name="imgDir" value="storage/gadder/varcity3dchallenge/data/ruemonge428/image/" />
+		<option name="lblDir" value="storage/gadder/varcity3dchallenge/data/ruemonge428/label/" />
+		<option name="cacheDir" value="libre/gadder/varcity/cache/" />
+		<option name="modelsDir" value="libre/gadder/varcity/models/" />
+		<option name="outputDir" value="libre/gadder/varcity/output/" />
+
+    <option name="imgExt" value=".jpg" />
+    <option name="lblExt" value=".txt" />
+
+    <option name="useCache" value="false" />
+
+    <!-- region definitions -->
+		<regionDefinitions>
+			<region id="0" name="door" color="255 128 0"/>
+			<region id="1" name="shop" color="0 255 0"/>
+			<region id="2" name="balcony" color="128 0 255"/>
+			<region id="3" name="window" color="255 0 0"/>
+			<region id="4" name="wall" color="255 255 0"/>
+			<region id="5" name="sky" color="128 255 255"/>
+			<region id="6" name="roof" color="0 0 255"/>
+    </regionDefinitions>
+  </drwnMultiSegConfig>
+
+  <drwnSegImagePixelFeatures>
+    <!-- feature options -->
+    <option name="filterBandwidth" value="1" />
+    <option name="featureGridSpacing" value="5" />
+    <option name="includeRGB" value="true" />
+    <option name="includeHOG" value="true" />
+    <option name="includeLBP" value="true" />
+    <option name="includeRowCol" value="true" />
+    <option name="includeLocation" value="true" />
+		<option name="auxFeatureDir" value="/libre/gadder/varcity/output/" />
+		<option name="auxFeatureExt" value="" />
+		<!--option name="auxFeatureExt" value=".doorfeatures.bin .windowfeatures.bin" /-->
+  </drwnSegImagePixelFeatures>
+
+  <drwnCodeProfiler enabled="true" />
+  <drwnLogger logLevel="VERBOSE"
+		logFile="/libre/gadder/varcity/varcity.log" />
+  <drwnThreadPool threads="16" />
+  <drwnConfusionMatrix colSep=" || " rowBegin="    || " rowEnd=" \" />
+  <drwnHOGFeatures blockSize="1" normClippingLB="0.1" normClippingUB="0.5" />
+</drwn>

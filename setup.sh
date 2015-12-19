@@ -10,14 +10,17 @@ cd drwn/external
 ./install.sh OpenCV
 ./install.sh wxWidgets
 ./install.sh lua
+
+wget -O rapidxml-1.13.zip "http://downloads.sourceforge.net/project/rapidxml/rapidxml/rapidxml%201.13/rapidxml-1.13.zip?r=http%3A%2F%2Frapidxml.sourceforge.net%2F&ts=1364493742&use_mirror=garr"
+unzip rapidxml-1.13.zip
+mv rapidxml-1.13 rapidxml
 cd ..
+
 export DARWIN="$PWD"
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${DARWIN}/external/opencv/lib
-export LD_LIBRARY_PATH2=${LD_LIBRARY_PATH}:${PWD}/external/opencv/lib
-export LD_LIBRARY_PATH3=${LD_LIBRARY_PATH}:$PWD/external/opencv/lib
 
-make
-make drwnprojs
+make -j
+make drwnprojs -j
 cd ../../
 
 # piotr dollar's toolbox
@@ -44,5 +47,4 @@ rm -rf graz_folds graz_folds.zip
 cd ../
 rm -rf graz50_facade_dataset.zip graz50_facade_dataset_readme.txt
 cd ../
-
 
