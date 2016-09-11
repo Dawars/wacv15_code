@@ -14,7 +14,7 @@ configFileName="grazConfigFile.xml"
 
 tmpPath="tmp/";
 darwin="./../lib/drwn/bin"
-matlab="/usr/local/MATLAB/R2013a/bin/matlab"
+matlab="/usr/local/MATLAB/R2012a/bin/matlab"
 #matlab="matlab"
 
 rm -rf $tmpPath temp.sh allImages.txt
