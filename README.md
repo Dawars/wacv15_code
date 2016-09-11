@@ -2,6 +2,10 @@
 
 This package contains the code for "Efficient Facade Segmentation Using Auto-context". If you use this code, please consider citing the following papers.
 
+```
+#!bibtex
+
+
 @inproceedings{jampani2015efficient,
   title={Efficient facade segmentation using auto-context},
   author={Jampani, Varun and Gadde, Raghudeep and Gehler, Peter V},
@@ -19,22 +23,11 @@ This package contains the code for "Efficient Facade Segmentation Using Auto-con
 }
 
 
-### How do I get set up? ###
+```
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+The code has been tested to work on Ubuntu 14.04 using Matlab R2012a. Please follow the below steps to use this code. 
+1) run setup.sh This will install the [Darwin](https://github.com/sgould/drwn) library and the [Piotr's Computer Vision Matlab Toolbox](https://github.com/pdollar/toolbox). Note that the [Graz dataset](http://www.vision.ee.ethz.ch/~rhayko/paper/cvpr2012_riemenschneider_lattice/) is also downloaded.
+2) run src/run.sh This will use the auto-context framework to train and test on the Graz dataset. 
 
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+* Upon running the code successfully, you should get around on the Graz dataset.
+* The training may take several hours. If you have more multiple-cores on your machine consider changing the "drwnThreadPool" attribute. Currently it is set to 8.
