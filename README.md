@@ -31,3 +31,4 @@ The code has been tested to work on Ubuntu 14.04 using Matlab R2012a. Please fol
 
 * Upon running the code successfully, you should get around on the Graz dataset.
 * The training may take several hours. If you have more multiple-cores on your machine consider changing the "drwnThreadPool" attribute. Currently it is set to 8.
+* Results are stored in out/graz/fold[1-5]. The dataset is divided into 5 folds (see data/graz folder). For fold1, set[1,2,3,4] are used for training and set5 for testing. For fold2, set[1,2,3,5] as training and set4 for testing.
