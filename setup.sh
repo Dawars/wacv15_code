@@ -5,7 +5,7 @@ mkdir data lib out out/graz
 
 # Install darwin
 cd lib/
-git clone https://github.com/sgould/drwn.git
+git clone https://github.com/Dawars/drwn.git
 cd drwn/external
 ./install.sh Eigen
 ./install.sh zlib
