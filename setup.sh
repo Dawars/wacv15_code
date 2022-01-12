@@ -1,6 +1,6 @@
 
 set -e
-sudo apt-get install csh cmake g++ libgtk2.0-dev pkg-config
+sudo apt-get install csh cmake g++ libgtk2.0-dev pkg-config libreadline-dev
 mkdir data lib out out/graz
 
 # Install darwin
